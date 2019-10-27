@@ -12,6 +12,9 @@ import { RouterModule } from '@angular/router';
 import { CreateEventComponent } from './events/create-event.component';
 import { Error404Component } from './errors/404.component';
 import { EventRouteActivator } from './events/event-details/event-route-activator.service';
+import { LoginComponent } from './events/login/login.component';
+import { FormsModule} from "@angular/forms"
+import { AuthService } from './events/login/auth.service';
 
 @NgModule({
   declarations: [
@@ -21,13 +24,16 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
     NavbarComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    Error404Component
+    Error404Component,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
-  providers: [EventService,EventRouteActivator, { provide : 'canDeactCreateEvent', useValue : checkDirtyState},],
+  providers: [EventService,EventRouteActivator, { provide : 'canDeactCreateEvent', useValue : checkDirtyState},
+  AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

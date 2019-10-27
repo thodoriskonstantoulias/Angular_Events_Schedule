@@ -4,6 +4,7 @@ import { EventDetailsComponent } from './events/event-details/event-details.comp
 import { CreateEventComponent } from './events/create-event.component'
 import { Error404Component } from './errors/404.component'
 import { EventRouteActivator } from './events/event-details/event-route-activator.service'
+import { LoginComponent } from './events/login/login.component'
 
 
 export const appRoutes : Routes = [
@@ -11,5 +12,6 @@ export const appRoutes : Routes = [
     {path : "events", component : EventsListComponent},
     {path : "events/:id", component : EventDetailsComponent, canActivate : [EventRouteActivator]},
     {path : "404" , component : Error404Component},
+    {path : "user/login" , component : LoginComponent},
     {path : "", redirectTo : "/events", pathMatch : "full"}
 ]
