@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { EventService } from './shared/event.service';
+import { IEvent } from './shared/event.model';
 
 @Component({
     templateUrl : './events-list.component.html',
@@ -7,7 +8,7 @@ import { EventService } from './shared/event.service';
 })
 
 export class EventsListComponent implements OnInit{
-    events :any[]
+    events :IEvent[]
 
     constructor(private eventService : EventService){
       
