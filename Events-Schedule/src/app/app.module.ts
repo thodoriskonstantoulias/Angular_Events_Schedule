@@ -27,7 +27,13 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EventService,EventRouteActivator],
+  providers: [EventService,EventRouteActivator, { provide : 'canDeactCreateEvent', useValue : checkDirtyState},],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function checkDirtyState(component : CreateEventComponent){
+  if (component.isDirty) 
+    return window.confirm("Do you really want to return?")
+  return true  
+}
