@@ -27,16 +27,16 @@
         <h3 style="margin:0">Sessions</h3>
       </div>
       <div class="col-md-7">
-        <button class="btn btn-default" [class.active]="filterBy === 'all'" (click)="filterBy = 'all'">All</button>
+        <button class="btn btn-default" [class.active]="filterBy === 'all'" (click)="filterByFunc('all')">All</button>
         <button class="btn btn-default" [class.active]="filterBy === 'beginner'"
-          (click)="filterBy = 'beginner'">Beginner</button>
+          (click)="filterByFunc('beginner')">Beginner</button>
         <button class="btn btn-default" [class.active]="filterBy === 'intermediate'"
-          (click)="filterBy = 'intermediate'">Intermediate</button>
+          (click)="filterByFunc('intermediate')">Intermediate</button>
         <button class="btn btn-default" [class.active]="filterBy === 'advanced'"
-          (click)="filterBy = 'advanced'">Advanced</button>
+          (click)="filterByFunc('advanced')">Advanced</button>
       </div>
     </div>
-    <div class="row" *ngFor="let session of event.sessions">
+    <div class="row" *ngFor="let session of visibleSession">
       <div class="col-md-10">
         <div class="well">
             <h4>{{session.name}}</h4>
