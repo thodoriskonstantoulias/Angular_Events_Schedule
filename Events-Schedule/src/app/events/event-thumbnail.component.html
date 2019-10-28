@@ -1,6 +1,6 @@
 <div class="well hoverwell thumbnail" [routerLink]="['/events', event.id]">
-    <h3>{{event?.name}} at {{event?.location?.country}}</h3>
-    <div>Date: {{event?.date}}</div>
-    <div>Price: ${{event?.price}}</div>
+    <h3>{{event?.name | uppercase}} at {{event?.location?.country | uppercase}}</h3>
+    <div>Date: {{event?.date | date}}</div>
+    <div>Price: {{event?.price | currency}}</div>
     <div [hidden]="!event?.location.address">Address: {{event.location?.address}} </div>
 </div>

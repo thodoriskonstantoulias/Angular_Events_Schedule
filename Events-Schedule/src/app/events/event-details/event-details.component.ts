@@ -12,7 +12,8 @@ import { IEvent } from '../shared/event.model';
 
 export class EventDetailsComponent{
 
-    event : IEvent
+    event : IEvent  
+    filterBy : string = 'all'
 
     constructor(private eventService : EventService,private route : ActivatedRoute){}
 
